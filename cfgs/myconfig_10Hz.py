@@ -22,21 +22,22 @@ DRIVE_LOOP_HZ = 10
 #JOYSTICK
 USE_JOYSTICK_AS_DEFAULT = True
 CONTROLLER_TYPE ='F710'
-JOYSTICK_MAX_THROTTLE = 0.5
+JOYSTICK_MAX_THROTTLE = 1.0
 JOYSTICK_STEERING_SCALE = 1.0
+MODEL_CATEGORICAL_MAX_THROTTLE_RANGE = JOYSTICK_MAX_THROTTLE
 
 #DonkeyGym
 DONKEY_GYM = True
-DONKEY_SIM_PATH = "./DonkeySimLinux/donkey_sim.x86_64" 
+DONKEY_SIM_PATH = "./DonkeySimLinux/donkey_sim.x86_64"
+SIM_HOST = "localhost"
 
 DONKEY_GYM_ENV_NAME = "donkey-warren-track-v0" 
-GYM_CONF = { "body_style" : "donkey", "body_rgb" : (92, 92, 240), "car_name" : "Hogenimushi", "font_size" : 18} # body style(donkey|bare|car01) body rgb 0-255
+GYM_CONF = { "body_style" : "donkey", "body_rgb" : (92, 92, 240), "car_name" : "Your Name", "font_size" : 18} # body style(donkey|bare|car01) body rgb 0-255
 
-GYM_CONF["racer_name"] = "Hogenimushi"
+GYM_CONF["racer_name"] = "Your Name"
 GYM_CONF["country"] = "JP"
 GYM_CONF["bio"] = "HELLO"
 
-SIM_HOST = "localhost"
 SIM_ARTIFICIAL_LATENCY = 0
 
 #WEB CONTROL
