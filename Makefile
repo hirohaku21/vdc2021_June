@@ -82,6 +82,17 @@ models/masked_decision_track_run.h5 : $(DATASET)
 	make arrange && \
 	TF_FORCE_GPU_ALLOW_GROWTH=true donkey train --tub=$(subst $(SPACE),$(COMMA),$^) --model=$@ --type=linear --config=cfgs/myconfig_10Hz.py
 
+### TEAM B Model ###
+THE_GUY := tbd
+
+models/teamb_agressive.h5: data/miller_fast_cruise_non_record_line_2021-06-15 data/miller_fast_zigzag_2021-06-15 data/miller_firstcorner_10_21-06-16 data/miller_firstcorner_11_21-06-16 data/miller_firstcorner_1_21-06-16 data/miller_firstcorner_12_21-06-16 data/miller_firstcorner_13_21-06-16 data/miller_firstcorner_14_21-06-16 data/miller_firstcorner_15_21-06-16 data/miller_firstcorner_2_21-06-16 data/miller_firstcorner_3_21-06-16 data/miller_firstcorner_4_21-06-16 data/miller_firstcorner_5_21-06-16 data/miller_firstcorner_6_21-06-16 data/miller_firstcorner_7_21-06-16 data/miller_firstcorner_8_21-06-16 data/miller_firstcorner_9_21-06-16 data/miller_recordline_tub_1_21-06-18 data/miller_recordline_tub_2_21-06-18 data/miller_recordline_tub_3_21-06-18 data/miller_recordline_tub_3_21-06-18.trim data/miller_recordline_tub_4_21-06-18 data/miller_recordline_tub_5_21-06-18 data/miller_recordline_tub_6_21-06-18 data/miller_recordline_tub_7_21-06-18 data/miller_recordline_tub_8_21-06-18 data/miller_recordline_tub_8_21-06-18.trim data/miller_recordline_tub_9_21-06-18 data/miller_slow_zigzag_2021-06-15 data/$(THE_GUY)_firstcorner_3_21-06-15
+	make arrange
+	TF_FORCE_GPU_ALLOW_GROWTH=true donkey train --tub=$(subst $(SPACE),$(COMMA),$^) --model=$@ --type=linear --config=cfgs/myconfig_10Hz.py
+
+models/teamb_stable.h5: miller_stable_recordline_tub_1_21-06-18
+	make arrange
+	TF_FORCE_GPU_ALLOW_GROWTH=true donkey train --tub=$(subst $(SPACE),$(COMMA),$^) --model=$@ --type=linear --config=cfgs/myconfig_10Hz.py
+
 # Tutorial
 dataset: $(TRM_ALL)
 
